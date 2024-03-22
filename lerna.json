@@ -1,0 +1,50 @@
+{
+  "version": "independent",
+  "packages": [
+    "packages/*"
+  ],
+  "ignore": [
+    "demo",
+    "@mwcp/demo",
+    "@mwcp/base",
+    "@mwcp/jaeger",
+    "@mw-components/demo"
+  ],
+  "command": {
+    "publish": {
+      "ignoreChanges": [
+        "*.md",
+        ".githooks",
+        ".scripts",
+        ".vscode",
+        "package-lock.json",
+        "packages/demo",
+        "packages/mw-demo",
+        "packages/base",
+        "packages/jaeger"
+      ],
+      "verifyAccess": false
+    },
+    "bootstrap": {
+      "hoist": true,
+      "noCi": true,
+      "nohoist": [
+        "cross-env",
+        "egg"
+      ],
+      "npmClientArgs": [
+        "--no-audit"
+      ]
+    },
+    "version": {
+      "conventionalCommits": true,
+      "allowBranch": [
+        "main",
+        "release",
+        "fix"
+      ],
+      "registry": "https://registry.npmjs.org/"
+    }
+  },
+  "npmClient": "npm"
+}
